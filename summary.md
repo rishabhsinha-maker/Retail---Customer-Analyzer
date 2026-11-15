@@ -114,6 +114,9 @@ python retail_customer_analyzer.py
 
 # Or run via main entrypoint
 python main.py
+
+# Run the automated unit test suite
+python main.py --test
 ```
 
 ---

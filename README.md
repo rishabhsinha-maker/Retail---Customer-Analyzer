@@ -145,6 +145,13 @@ Durg : Total Rs. 14200 | Average Rs. 4733.33
    *(or run `python main.py`)*
 5. Select options `1`, `2`, `3`, or `4` from the interactive console menu.
 
+### Automated Test Suite Execution
+To execute the comprehensive automated test suite verifying all test cases:
+```bash
+python main.py --test
+# or: python retail_customer_analyzer.py --test
+```
+
 ### Running with Test Datasets
 The application supports passing custom CSV test suites directly via CLI arguments:
 ```bash
