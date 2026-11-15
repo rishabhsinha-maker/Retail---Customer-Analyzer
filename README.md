@@ -46,12 +46,10 @@ Retail Customer Analyzer/
 ├── test_case3_edge_cases.csv        # Edge cases (zero spend, extreme high spend)
 ├── test_case4_dirty.csv             # Unsanitized headers, whitespace, missing values
 ├── summary.md                       # Comprehensive summary and test report
-├── problem_statement.jpeg           # Official problem statement reference
 ├── test_case_1_terminal.png         # Terminal screenshot for Test Case 1
 ├── test_case_2_terminal.png         # Terminal screenshot for Test Case 2
 ├── test_case_3_terminal.png         # Terminal screenshot for Test Case 3
 ├── test_case_4_terminal.png         # Terminal screenshot for Test Case 4
-├── terminal_all_testcases.png       # Complete terminal session screenshot
 ├── requirements.txt                 # Project dependencies (pandas, numpy, matplotlib)
 ├── .gitignore                       # Git ignore file
 └── README.md                        # Project documentation

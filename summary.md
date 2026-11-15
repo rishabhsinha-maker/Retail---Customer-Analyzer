@@ -15,8 +15,6 @@
 
 The assignment specifies reading `customers.csv` using Pandas, displaying spending statistics (mean, median, highest, lowest spending), listing customers who spent at least a user-specified threshold, and generating city-wise aggregated spending summaries across all 4 mandatory test cases.
 
-![Problem Statement Assignment](problem_statement.jpeg)
-
 ---
 
 ## 🧪 Test Case 1: Normal Input (Spending Statistics)
@@ -87,14 +85,6 @@ Durg : Total Rs. 14200 | Average Rs. 4733.33
 
 ### Laptop Terminal Screenshot
 ![Test Case 4 Terminal Screenshot](test_case_4_terminal.png)
-
----
-
-## 🖥️ Complete Continuous Terminal Session (All 4 Test Cases)
-
-Below is the complete laptop terminal session running `python retail_customer_analyzer.py` executing all 4 test cases consecutively:
-
-![All Test Cases Terminal Screenshot](terminal_all_testcases.png)
 
 ---
 
