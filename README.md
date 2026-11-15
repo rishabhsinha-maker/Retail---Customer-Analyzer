@@ -48,9 +48,7 @@ Retail Customer Analyzer/
 ├── test_case_3_terminal.png         # Terminal screenshot for Test Case 3
 ├── test_case_4_terminal.png         # Terminal screenshot for Test Case 4
 ├── terminal_all_testcases.png       # Complete terminal session screenshot
-├── run_4_test_cases.py              # Runner for 4 official test cases
-├── test_retail_customer_analyzer.py # Automated test suite
-├── requirements.txt                 # Project dependencies (pandas, pytest)
+├── requirements.txt                 # Project dependencies (pandas, numpy, matplotlib)
 ├── .gitignore                       # Git ignore file
 └── README.md                        # Project documentation
 ```
@@ -145,18 +143,4 @@ Durg : Total Rs. 14200 | Average Rs. 4733.33
    *(or run `python main.py`)*
 5. Select options `1`, `2`, `3`, or `4` from the interactive console menu.
 
----
-
-## 🧪 How to Run Automated Tests
-
-Run the full automated test suite (28 test cases passing):
-
-```bash
-# Using pytest
-pytest -v
-
-# Or using the built-in test runner
-python run_tests.py
-```
-
-See [summary.md](summary.md) for full test summary and screenshots.
+See [summary.md](summary.md) for full test case verification and screenshots.

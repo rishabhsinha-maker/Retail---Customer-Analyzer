@@ -98,21 +98,18 @@ Below is the complete laptop terminal session running `python retail_customer_an
 
 ---
 
-## 💻 How to Run the Program and Tests
+## 💻 How to Run the Program
 
 Open Windows PowerShell on your laptop and navigate to the project directory:
 
 ```powershell
-cd "C:\Users\OMEN\Retail---Customer-Analyzer"
+cd "Retail---Customer-Analyzer"
 
-# 1. Run the interactive console application
+# Run the interactive console application
 python retail_customer_analyzer.py
 
-# 2. Run the 4 official test cases verification script
-python run_4_test_cases.py
-
-# 3. Run the automated Pytest test suite
-pytest -v
+# Or run via main entrypoint
+python main.py
 ```
 
 ---
