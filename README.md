@@ -36,15 +36,19 @@ A standalone, console-based Python 3 retail customer analytics project developed
 ## 📂 Project Structure
 
 ```text
-E:\Retail Customer Analyzer\
+Retail Customer Analyzer/
 │
-├── retail_customer_analyzer.py  # Standalone single-file solution (Requirement 1)
-├── main.py                      # Application launcher
-├── customers.csv                # Primary customer dataset (8 records)
-├── requirements.txt             # Project dependencies (pandas)
-├── .gitignore                   # Git ignore file
-├── README.md                    # Project documentation
-└── PROJECT_REPORT.md            # Academic project report
+├── retail_customer_analyzer.py      # Standalone single-file solution (Requirement 1)
+├── main.py                          # Application launcher
+├── test_retail_customer_analyzer.py # Automated test suite (28 test cases)
+├── run_tests.py                     # Test runner script
+├── summary.md                       # Comprehensive summary and test report
+├── test_cases_passed.png            # Screenshot evidence of passed test cases
+├── customers.csv                    # Primary customer dataset (8 records)
+├── requirements.txt                 # Project dependencies (pandas, pytest)
+├── .gitignore                       # Git ignore file
+├── README.md                        # Project documentation
+└── PROJECT_REPORT.md                # Academic project report
 ```
 
 ---
@@ -124,11 +128,31 @@ Durg : Total Rs. 14200 | Average Rs. 4733.33
 1. Open PowerShell or Command Prompt.
 2. Navigate to the project directory:
    ```bash
-   cd "E:\Retail Customer Analyzer"
+   cd "Retail---Customer-Analyzer"
    ```
-3. Run the Python file:
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. Run the Python file:
    ```bash
    python retail_customer_analyzer.py
    ```
    *(or run `python main.py`)*
-4. Select options `1`, `2`, `3`, or `4` from the interactive console menu.
+5. Select options `1`, `2`, `3`, or `4` from the interactive console menu.
+
+---
+
+## 🧪 How to Run Automated Tests
+
+Run the full automated test suite (28 test cases passing):
+
+```bash
+# Using pytest
+pytest -v
+
+# Or using the built-in test runner
+python run_tests.py
+```
+
+See [summary.md](summary.md) for full test summary and screenshots.
