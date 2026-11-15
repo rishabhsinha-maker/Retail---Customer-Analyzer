@@ -1,138 +1,167 @@
-# Project Summary & Test Case Report: Retail Customer Analyzer
+# Problem Statement No. 74: Test Cases Verification Summary
 
-**Problem Statement No.:** 74  
 **Project Title:** Retail Customer Analyzer  
 **Institution:** Rungta International Skills University  
 **School:** School of Computer Science and Engineering  
-**Program:** Bachelor of Technology - Computer Science and Engineering (Artificial Intelligence and Machine Learning in association with Microsoft)  
-**Status:** ✅ **ALL TEST CASES PASSED (28/28 - 100% SUCCESS RATE)**  
+**Program:** B.Tech CSE (Artificial Intelligence and Machine Learning in association with Microsoft)  
+**Status:** ✅ **ALL 4 TEST CASES VERIFIED & PASSED (100% SUCCESS RATE)**  
 
 ---
 
-## 📸 Test Execution Evidence & Screenshot
+## 📌 Executive Summary
 
-The test suite was executed across all unit, integration, and edge-case boundaries. All 28 test cases passed cleanly with exit code `0`.
-
-![Test Cases Passed](test_cases_passed.png)
+Under **Problem Statement No. 74**, the application processes retail customer transaction datasets from `customers.csv` using Python 3 and Pandas. Below are the separate, comprehensive verifications and **individual screenshots** for each of the 4 required test cases.
 
 ---
 
-## 📌 Executive Overview
+## 🧪 Test Case 1: Normal Input (Spending Statistics)
 
-The **Retail Customer Analyzer** is a Python 3 console-based analytics application developed to address **Problem Statement No. 74**. The system ingests retail customer transaction datasets from `customers.csv` via **Pandas**, computes key descriptive statistics, filters high-value customer accounts against dynamic thresholds with rigorous input validation, and produces aggregated city-wise expenditure profiles.
+### Requirement
+- Calculate and display:
+  - **Mean spend**: Average spending across all customer accounts.
+  - **Median spend**: Middle value of sorted expenditures.
+  - **Highest spender**: Customer name and amount.
+  - **Lowest spender**: Customer name and amount.
 
----
-
-## 🧪 Comprehensive Test Suite Architecture
-
-A test suite ([`test_retail_customer_analyzer.py`](test_retail_customer_analyzer.py)) and automated runner ([`run_tests.py`](run_tests.py)) were built with **28 distinct automated test scenarios** covering every core function, boundary condition, invalid input, and end-to-end interactive CLI workflows:
-
-| Test Group | Total Tests | Status | Description |
-|:---|:---:|:---:|:---|
-| **Test Case 1: Spending Statistics** | 2 | ✅ PASS | Validates Mean (Rs. 9125.00), Median (Rs. 7500.00), Highest (Chitra - Rs. 25000), Lowest (Deepak - Rs. 800), and empty DataFrame safety |
-| **Test Case 2: Boundary / High-Value** | 5 | ✅ PASS | Validates boundary limits (Rs. 25000), intermediate limits (Rs. 10000), zero limits, exceeding limits, and empty data handling |
-| **Test Case 3: Invalid Input Validation** | 4 | ✅ PASS | Validates non-numeric string rejection (`"abc"`, `"$%#@"` -> `Invalid amount. Please enter a number.`) and negative number rejection (`"-500"`, `"-0.01"` -> `Amount must be 0 or more.`) |
-| **Test Case 4: City-Wise Aggregation** | 3 | ✅ PASS | Validates grouping by city, calculation of Total & Average expenditure, descending order sorting (Raipur > Bhilai > Durg), and empty safety |
-| **Data Ingestion & CSV Loader** | 5 | ✅ PASS | Validates loading valid datasets, missing file handling, empty file handling, missing required column validation, and UTF-8 BOM / column variations |
-| **Amount Formatting Helper** | 4 | ✅ PASS | Validates integer floats (25000.0 -> "25000"), two-decimal float precision (14333.333 -> "14333.33"), and fallback parsing |
-| **Interactive CLI Menu E2E** | 5 | ✅ PASS | Tests end-to-end user journeys through console menus (options 1, 2, 3, invalid option 99 recovery, and string aliases like 'spending statistics') |
-
----
-
-## 🔬 Detailed Test Cases & Expected vs Actual Outputs
-
-### 1. Test Case 1: Spending Statistics (Normal Input)
-- **Action:** Select Menu Option `1`
-- **Expected & Actual Output:**
+### Interactive Console Execution
+- **Menu Choice:** `1`
+- **Output:**
   ```text
   Mean spend: Rs. 9125.00
   Median spend: Rs. 7500.00
   Highest: Chitra (Rs. 25000)
   Lowest: Deepak (Rs. 800)
   ```
-- **Verification:** Mathematical mean `(12000+3000+25000+800+9000+6000+15000+2200) / 8 = 73000 / 8 = 9125.00`. Median of sorted values `[800, 2200, 3000, 6000, 9000, 12000, 15000, 25000]` is `(6000 + 9000) / 2 = 7500.00`. Matches perfectly.
 
-### 2. Test Case 2: Boundary / Minimum Input (High-Value Customers)
-- **Action:** Select Menu Option `2`, Enter Limit `25000`
-- **Expected & Actual Output:**
+### Mathematical & Automated Assertion
+- **Sum:** `12000 + 3000 + 25000 + 800 + 9000 + 6000 + 15000 + 2200 = 73000`
+- **Mean:** `73000 / 8 = Rs. 9125.00` ✅
+- **Sorted Values:** `[800, 2200, 3000, 6000, 9000, 12000, 15000, 25000]`
+- **Median:** `(6000 + 9000) / 2 = Rs. 7500.00` ✅
+- **Highest:** Chitra (`C03` - Rs. 25000) ✅
+- **Lowest:** Deepak (`C04` - Rs. 800) ✅
+- **Pytest:** `test_spending_statistics_output` $\rightarrow$ **PASSED**
+
+### 📸 Test Case 1 Passed Screenshot
+![Test Case 1 Passed](test_case_1_passed.png)
+
+---
+
+## 🧪 Test Case 2: Boundary / Minimum Input (High-Value Customers)
+
+### Requirement
+- Prompt the user to enter a spending threshold limit.
+- Filter customer records whose `TotalSpent` is greater than or equal to the limit.
+- Display customer ID, Name, City, and formatted expenditure.
+
+### Interactive Console Execution
+- **Menu Choice:** `2`
+- **User Input (Limit):** `25000`
+- **Output:**
   ```text
   High-value customers (TotalSpent >= 25000):
   C03 | Chitra | Raipur | Rs. 25000
   ```
-- **Verification:** Filters only customer C03 who has `TotalSpent == 25000`.
 
-### 3. Test Case 3: Invalid Input Handling
-- **Scenario (a) - Non-numeric string input:**
-  - **Input:** `abc`
-  - **Output:** `Invalid amount. Please enter a number.`
-- **Scenario (b) - Negative number input:**
-  - **Input:** `-500`
-  - **Output:** `Amount must be 0 or more.`
-- **Verification:** Both guard rails trigger before any DataFrame query, preventing program crashes.
+### Verification & Automated Assertion
+- Customer `C03 (Chitra)` spent exactly `25000` (meets `>= 25000` boundary condition).
+- Lower spending customers (`Deepak` at 800, `Hari` at 2200, `Asha` at 12000, `Gita` at 15000) are excluded.
+- **Pytest:** `test_high_value_customers_boundary_25000` $\rightarrow$ **PASSED**
 
-### 4. Test Case 4: City-Wise Summary
-- **Action:** Select Menu Option `3`
-- **Expected & Actual Output:**
+### 📸 Test Case 2 Passed Screenshot
+![Test Case 2 Passed](test_case_2_passed.png)
+
+---
+
+## 🧪 Test Case 3: Invalid Input Validation
+
+### Requirement
+- Robustly validate user input before parsing.
+- Reject non-numeric input without throwing unhandled runtime exceptions.
+- Reject negative monetary amounts.
+
+### Interactive Console Execution
+- **Scenario 3a: Non-Numeric String Input**
+  - **User Input (Limit):** `abc`
+  - **Output:** `Invalid amount. Please enter a number.` ✅
+- **Scenario 3b: Negative Amount Input**
+  - **User Input (Limit):** `-500`
+  - **Output:** `Amount must be 0 or more.` ✅
+
+### Verification & Automated Assertion
+- Guard checks intercept invalid inputs before triggering Pandas query filtering.
+- **Pytest:**
+  - `test_case_3a_non_numeric_input_string` $\rightarrow$ **PASSED**
+  - `test_case_3b_negative_integer` $\rightarrow$ **PASSED**
+
+### 📸 Test Case 3 Passed Screenshot
+![Test Case 3 Passed](test_case_3_passed.png)
+
+---
+
+## 🧪 Test Case 4: Different Valid Scenario (City-Wise Summary)
+
+### Requirement
+- Group customer transactions by `City`.
+- Calculate `Total` expenditure (`sum`) and `Average` spending (`mean`) per city.
+- Sort the resulting summary descending by total city spending.
+
+### Interactive Console Execution
+- **Menu Choice:** `3`
+- **Output:**
   ```text
   Raipur : Total Rs. 43000 | Average Rs. 14333.33
   Bhilai : Total Rs. 15800 | Average Rs. 7900.00
   Durg : Total Rs. 14200 | Average Rs. 4733.33
   ```
-- **Verification:**
-  - **Raipur:** Asha (12000) + Chitra (25000) + Farhan (6000) = Total Rs. 43000; Avg = 43000 / 3 = Rs. 14333.33.
-  - **Bhilai:** Deepak (800) + Gita (15000) = Total Rs. 15800; Avg = 15800 / 2 = Rs. 7900.00.
-  - **Durg:** Bhavin (3000) + Esha (9000) + Hari (2200) = Total Rs. 14200; Avg = 14200 / 3 = Rs. 4733.33.
-  - Sorted descending by Total: `43000 > 15800 > 14200`.
+
+### Mathematical & Automated Assertion
+1. **Raipur:**
+   - Customers: Asha (12000), Chitra (25000), Farhan (6000)
+   - Total: `12000 + 25000 + 6000 = Rs. 43000`
+   - Average: `43000 / 3 = Rs. 14333.33` ✅
+2. **Bhilai:**
+   - Customers: Deepak (800), Gita (15000)
+   - Total: `800 + 15000 = Rs. 15800`
+   - Average: `15800 / 2 = Rs. 7900.00` ✅
+3. **Durg:**
+   - Customers: Bhavin (3000), Esha (9000), Hari (2200)
+   - Total: `3000 + 9000 + 2200 = Rs. 14200`
+   - Average: `14200 / 3 = Rs. 4733.33` ✅
+- **Ordering Check:** `43000 (Raipur) > 15800 (Bhilai) > 14200 (Durg)`. Correctly sorted descending.
+- **Pytest:** `test_city_wise_summary_output` and `test_city_wise_summary_order` $\rightarrow$ **PASSED**
+
+### 📸 Test Case 4 Passed Screenshot
+![Test Case 4 Passed](test_case_4_passed.png)
 
 ---
 
-## 💻 How to Reproduce & Execute the Test Suite
+## 💻 How to Run the Tests
 
-### Option 1: Running via Pytest
+You can execute all 4 test cases or run the dedicated runner directly from PowerShell or Command Prompt:
+
 ```bash
-pytest test_retail_customer_analyzer.py -v
-```
+# 1. Run the dedicated 4 official test cases runner
+python run_4_test_cases.py
 
-### Option 2: Running via Test Runner
-```bash
-python run_tests.py
-```
+# 2. Run the full 28-test automated suite via pytest
+pytest -v
 
-### Option 3: Running the Interactive Application
-```bash
-python retail_customer_analyzer.py
-# or
-python main.py
-```
-
----
-
-## 📁 Repository Structure After Implementation
-
-```text
-Retail---Customer-Analyzer/
-├── retail_customer_analyzer.py     # Standalone single-file core implementation
-├── main.py                         # Application entrypoint launcher
-├── test_retail_customer_analyzer.py # 28 automated pytest / unittest test cases
-├── run_tests.py                    # Automated test runner script
-├── test_cases_passed.png           # Test suite execution evidence screenshot
-├── test_terminal_view.html         # Test report terminal rendering template
-├── customers.csv                   # Transaction dataset (8 records)
-├── summary.md                      # Comprehensive summary and test report
-├── README.md                       # Project documentation
-├── PROJECT_REPORT.md               # Academic project report
-└── requirements.txt                # Dependencies (pandas, numpy, matplotlib, pytest)
+# 3. Run individual test cases via pytest filter
+pytest -k "TestCase1" -v
+pytest -k "TestCase2" -v
+pytest -k "TestCase3" -v
+pytest -k "TestCase4" -v
 ```
 
 ---
 
-## ✅ Compliance & Quality Checklist
+## 📋 Test Summary Table
 
-- [x] Python 3 standalone execution
-- [x] Pandas DataFrame filtering and aggregation
-- [x] Missing file error handling
-- [x] Non-numeric and negative input validation
-- [x] Grouping by City with Total and Average calculations
-- [x] Descending sorting by total spending
-- [x] 100% automated test suite passing (28/28 tests)
-- [x] High-resolution screenshot captured and embedded in `summary.md`
+| Test Case | Scenario / Name | Input | Expected Output | Status |
+|:---:|:---|:---:|:---|:---:|
+| **1** | Normal Input (Spending statistics) | `1` | Mean: 9125.00, Median: 7500.00, Highest: Chitra, Lowest: Deepak | ✅ **PASSED** |
+| **2** | Boundary / Minimum Input | `2` $\rightarrow$ `25000` | C03 \| Chitra \| Raipur \| Rs. 25000 | ✅ **PASSED** |
+| **3a** | Invalid Input (Non-numeric) | `2` $\rightarrow$ `abc` | `Invalid amount. Please enter a number.` | ✅ **PASSED** |
+| **3b** | Invalid Input (Negative) | `2` $\rightarrow$ `-500` | `Amount must be 0 or more.` | ✅ **PASSED** |
+| **4** | Different Valid Scenario (City Summary) | `3` | Raipur: 43000/14333.33, Bhilai: 15800/7900.00, Durg: 14200/4733.33 | ✅ **PASSED** |
