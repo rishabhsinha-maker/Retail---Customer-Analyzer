@@ -40,15 +40,19 @@ Retail Customer Analyzer/
 │
 ├── retail_customer_analyzer.py      # Standalone single-file solution (Requirement 1)
 ├── main.py                          # Application launcher
-├── test_retail_customer_analyzer.py # Automated test suite (28 test cases)
-├── run_tests.py                     # Test runner script
-├── summary.md                       # Comprehensive summary and test report
-├── test_cases_passed.png            # Screenshot evidence of passed test cases
 ├── customers.csv                    # Primary customer dataset (8 records)
+├── summary.md                       # Comprehensive summary and test report
+├── problem_statement.jpeg           # Official problem statement reference
+├── test_case_1_terminal.png         # Terminal screenshot for Test Case 1
+├── test_case_2_terminal.png         # Terminal screenshot for Test Case 2
+├── test_case_3_terminal.png         # Terminal screenshot for Test Case 3
+├── test_case_4_terminal.png         # Terminal screenshot for Test Case 4
+├── terminal_all_testcases.png       # Complete terminal session screenshot
+├── run_4_test_cases.py              # Runner for 4 official test cases
+├── test_retail_customer_analyzer.py # Automated test suite
 ├── requirements.txt                 # Project dependencies (pandas, pytest)
 ├── .gitignore                       # Git ignore file
-├── README.md                        # Project documentation
-└── PROJECT_REPORT.md                # Academic project report
+└── README.md                        # Project documentation
 ```
 
 ---
