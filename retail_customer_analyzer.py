@@ -170,12 +170,19 @@ def show_city_wise_summary(df):
 def main():
     """
     Runs the program from the console with an interactive menu.
+    Supports optional CSV file path argument: python main.py <custom_dataset.csv>
     """
     csv_file = "customers.csv"
 
+    # Support command-line argument for test CSV datasets
+    if len(sys.argv) > 1 and not sys.argv[1].startswith("-"):
+        csv_file = sys.argv[1]
+    elif len(sys.argv) > 2 and sys.argv[1] in ["--file", "-f"]:
+        csv_file = sys.argv[2]
+
     # Handle missing file or prompt for path
     if not os.path.exists(csv_file):
-        print(f"Warning: Default '{csv_file}' was not found in the current directory.")
+        print(f"Warning: File '{csv_file}' was not found in the current directory.")
         user_file = input("Enter the path/name of your CSV file: ").strip()
         if user_file:
             csv_file = user_file

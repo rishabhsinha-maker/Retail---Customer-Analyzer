@@ -98,6 +98,20 @@ Below is the complete laptop terminal session running `python retail_customer_an
 
 ---
 
+## 📂 Multi-Scenario Test Datasets Matrix
+
+To verify defensive edge cases and system robustness beyond the benchmark data, the repository includes dedicated CSV test files:
+
+| Dataset File | Target Test Scenario | Record Count | Verification Scope | Status |
+|---|---|:---:|---|:---:|
+| `customers.csv` | Official Benchmark Dataset | 8 | Validates Test Cases 1, 2, 3, and 4 | **PASS** |
+| `test_case_empty.csv` | Empty File Guardrail | 0 | Verifies Requirement 2 graceful termination without unhandled crash | **PASS** |
+| `test_case2_boundary.csv` | Single-Record Boundary | 1 | Verifies single-row median, mean, min, and max parity | **PASS** |
+| `test_case3_edge_cases.csv` | Extreme Outliers & Zero Spend | 6 | Verifies zero values (Rs. 0), large values (Rs. 100,000), and tiebreaks | **PASS** |
+| `test_case4_dirty.csv` | Defensive Data Wrangling | 6 | Strips dirty column headers, handles NaN values, and non-numeric entries | **PASS** |
+
+---
+
 ## 💻 How to Run the Program
 
 Open Windows PowerShell on your laptop and navigate to the project directory:

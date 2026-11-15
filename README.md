@@ -39,8 +39,12 @@ A standalone, console-based Python 3 retail customer analytics project developed
 Retail Customer Analyzer/
 │
 ├── retail_customer_analyzer.py      # Standalone single-file solution (Requirement 1)
-├── main.py                          # Application launcher
-├── customers.csv                    # Primary customer dataset (8 records)
+├── main.py                          # Application launcher with CLI argument support
+├── customers.csv                    # Primary benchmark dataset (8 official records)
+├── test_case_empty.csv              # Empty dataset verifying Requirement 2 error handling
+├── test_case2_boundary.csv          # Single high-value record boundary test
+├── test_case3_edge_cases.csv        # Edge cases (zero spend, extreme high spend)
+├── test_case4_dirty.csv             # Unsanitized headers, whitespace, missing values
 ├── summary.md                       # Comprehensive summary and test report
 ├── problem_statement.jpeg           # Official problem statement reference
 ├── test_case_1_terminal.png         # Terminal screenshot for Test Case 1
@@ -142,5 +146,24 @@ Durg : Total Rs. 14200 | Average Rs. 4733.33
    ```
    *(or run `python main.py`)*
 5. Select options `1`, `2`, `3`, or `4` from the interactive console menu.
+
+### Running with Test Datasets
+The application supports passing custom CSV test suites directly via CLI arguments:
+```bash
+# Benchmark official dataset (default)
+python main.py
+
+# Empty file validation (Requirement 2)
+python main.py test_case_empty.csv
+
+# Boundary threshold testing (Single-record max spend)
+python main.py test_case2_boundary.csv
+
+# Edge cases (Zero spend and extreme outliers)
+python main.py test_case3_edge_cases.csv
+
+# Dirty dataset (Unsanitized headers, whitespace, missing values)
+python main.py test_case4_dirty.csv
+```
 
 See [summary.md](summary.md) for full test case verification and screenshots.

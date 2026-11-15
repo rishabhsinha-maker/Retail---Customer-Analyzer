@@ -1,0 +1,7 @@
+customerid,  NAME ,City ,Purchases, totalspent
+D01, Rajesh Kumar , Raipur , 4 , 18500
+D02, Priya Sharma , Durg , 2 , INVALID_VAL
+D03, Amit Patel , Bhilai , 6 , 22000
+D04, Neha Verma , Raipur , , 14000
+D05, Manoj Tiwari , Durg , 3 , 7500
+D06, Sunita Rao , Bhilai , 1 , 950
